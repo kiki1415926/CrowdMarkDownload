@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+{% block content %}
+    {% for assignment in assignments %}
+        <ul class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ assignment.title }}
+              <span class="badge badge-primary badge-pill">{{ assignment.num_content }}</span>
+            </button>
+            <li class="dropdown-menu">
+                {% for item in assignment.content %}
+                    <a class="dropdown-item" href="#"><input type="checkbox"><label>{{ item }}</label></a>
+                {% endfor %}
+            </li>
+        </ul>
+    {% endfor %}
+{% endblock content %}
+
